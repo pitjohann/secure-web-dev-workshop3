@@ -17,21 +17,17 @@
 > feat(1): Initiate NPM Project
 > ```
 
-1. In this directory, initiate an NPM project
-   > ```shell
-   > npm init
-   > ```
-2. Install existing packages with `npm install`
+1. Install existing packages with `npm install`
    > ```shell
    >  npm install
    > ```
-3. Add NPM packages `express`
+2. Add NPM packages `express`
    > Mongoose is a package making mongo request easier and more secure
    > ```shell
    > npm install --save express
    > ```
-4. Put your database credentials in a file named `.env` (from Workshop2)
-5. Take a look at the architecture 
+3. Put your database credentials in a file named `.env` (from Workshop2)
+4. Take a look at the architecture 
    > One Folder per entity.
    > In each folder, 3 files:
    > 
@@ -40,9 +36,9 @@
    > entity.service.js -> Business Logic Layer
    > 
    > entity.model.js -> Database Layer
-6. Implement a "Hello World" route, on GET / that returns "Hello World"
+5. Implement a "Hello World" route, on GET / that returns "Hello World"
    1. Visit the route at http://localhost:3000/
-7. Create the API CRUD for Location
+6. Create the API CRUD for Location
    1. Create routes at Presentation Layer
    2. Implement business logic in the Location Service
    > ```
