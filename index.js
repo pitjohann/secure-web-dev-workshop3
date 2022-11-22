@@ -6,10 +6,10 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const bodyParser = require('body-parser')
 
-
-app.use(locationController)
 app.use(bodyParser.json())
-app.listen(port, async () => {
+app.use(locationController)
+
+app.listen(port, async () =>	 {
 	await mongoose.connect(process.env.MONGO_URI)
 	console.log(`API listening on port ${port}, visit http://localhost:${port}/`)
 })
