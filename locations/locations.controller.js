@@ -3,14 +3,27 @@
 
 const router = require('express').Router()
 const locationsService = require('./locations.service')
+const {findAll} = require("./locations.service");
 
-router.get('/locations', (req, res) => {
-	return res.status(200).send({locations: []})
+router.get('/locations', async (req, res) => {
+	return res.status(200).send({locations: await locationsService.findAll()})
 })
 
 router.get('/HelloWorld',(req,res) => {
 	return res.status(200).send('Hello World')
 })
+
+router.get('/locations/:id', async (req,res)=> {
+	return res.status(200).send({locations: await locationsService.findOne(req.params.id)})
+})
+
+
+//const id =
+router.post('/locations', async (req, res) => {
+	return res.status(200).send({location: await locationsService.createOne(req.body)})
+})
+
+
 
 
 module.exports = router
