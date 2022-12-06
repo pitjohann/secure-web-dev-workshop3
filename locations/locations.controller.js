@@ -3,7 +3,7 @@
 
 const router = require('express').Router()
 const locationsService = require('./locations.service')
-const {findAll} = require("./locations.service");
+
 
 router.get('/locations', async (req, res) => {
 	return res.status(200).send({locations: await locationsService.findAll()})
