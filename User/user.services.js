@@ -9,15 +9,30 @@ function findAll () {
 }
 
 async function createUser(userData) {
-    const newUser = new Users(userData)
+    const password = await bcryptjs.hash(userData['password'],numSaltRounds)
+    const newUser = new Users({...userData,password:password})
 
-    return await newUser.save()
+    try{
+        return await newUser.save()
+    } catch(e){
+        throw new Error("User not unique")
+    }
+
 }
 
 async function loginUser(userData) {
     const actualUser = new Users(userData)
-    return Users.find()
+    return Users.find(actualUser)
 }
+
+async function getAll(){
+    const arr = await Users.find();
+    let result = arr.map(a=>a.username)
+    return result
+}
+
+
 
 module.exports.findAll = findAll
 module.exports.createUser = createUser
+module.exports.getAll = getAll
