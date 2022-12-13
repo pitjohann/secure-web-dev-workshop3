@@ -76,7 +76,7 @@ actual route handler, or **add data to request!**
 This is where Passport middlewares shines:
 
 ```javascript
-router.use(checkUser) // Passport Middleware. If User is authenticated, it is added to req
+router.use(checkUser) // Passport Middleware. If user is authenticated, it is added to req
 router.get('/locations', (req, res) => res.send(200).body({ locations: [], user: req.user }))
 ```
 

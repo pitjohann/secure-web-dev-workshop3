@@ -4,7 +4,7 @@ const Location = require('./locations.model')
 
 function findAll () {
 
-	return Location.find({}).limit(10)
+	return Location.find()
 }
 
 function findOne(id){

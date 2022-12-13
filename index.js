@@ -1,6 +1,6 @@
 const express = require('express')
 const locationController = require('./locations/locations.controller')
-const userController = require('./User/user.controller')
+const userController = require('./user/user.controller')
 const app = express()
 const port = 3000
 const mongoose = require('mongoose')
