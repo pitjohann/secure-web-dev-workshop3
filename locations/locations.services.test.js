@@ -22,3 +22,12 @@ describe('Locations findOne', () => {
         expect(Location.findOne).toHaveBeenCalledWith('6594654498efgdf56v4sdf6g54df')
     })
 })
+/*
+location.find.mockImplementation(() => ({
+    limit: jest.fn().
+    mockImplementation(
+        () => ({
+            lean: jest.fn().mockResolvedValue([1, 2, 3, 4])
+        })),
+}))
+*/

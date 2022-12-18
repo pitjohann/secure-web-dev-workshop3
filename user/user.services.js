@@ -2,6 +2,7 @@ const Users = require('./user.model')
 const bcrypt = require('bcrypt');
 const jwt =require('jsonwebtoken')
 const numSaltRounds = 8;
+
 //const Location = require("../locations/locations.model");
 
 function findAll () {
@@ -32,6 +33,18 @@ async function getAll(){
     return result
 }
 
+async function Delete(id) {
+    await Users.deleteOne({ _id: id});
+    return "User got Deleted"
+}
+
+async function Update(id, update){
+    await Delete(id)
+    await createUser(update)
+
+    return Users.findOne(id)
+}
+
 async function verifyPassword(user,password){
 
     const isMatching = await bcrypt.compare(password,user.password)
@@ -40,8 +53,9 @@ async function verifyPassword(user,password){
 }
 
 async function getToken(_id) {
-    return jwt.sign({sub:_id}, process.env.JWT_SECRET);
+    return jwt.sign({sub:_id}, process.env.JWT_SECRET)
 }
+
 
 
 module.exports.findAll = findAll
@@ -51,3 +65,6 @@ module.exports.createUser = createUser
 module.exports.getAll = getAll
 module.exports.verifyPassword = verifyPassword
 module.exports.getToken = getToken
+
+module.exports.Delete = Delete
+module.exports.Update = Update
